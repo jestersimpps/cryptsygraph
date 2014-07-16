@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--https://github.com/jestersimpps/cryptsygraph-->
+<!--jestersimpps@gmail.com-->
+
+<html lang="en" ng-app="cryptsyvisuals">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>--page title--</title>
+
+        <!-- stylesheets -->
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">     
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="style.css">
+            
+        <!-- JavaScript libraries -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular.min.js"></script>
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        
+        <!-- JavaScript project -->        
+        <script type="text/javascript" src="app.js"></script>
+        
+  </head>
+  <body class="container" ng-controller="PanelController as panel">
+
+	
+	<div class="container-fluid" ng-show="panel.isSelected(panel.tab)" ng-hide="panel.tab===5 || panel.tab===6">
+	    <div class="calc">
+		<div class="row" ng-repeat="row in panel.getRows(panel.tab) track by $index">
+      
+		    <div class="col-xs-12 col-sm-12 col-md-12">    
+
+		    </div>
+		
+		</div>    
+	    </div>
+	</div>    
+
+  
+  </body>
+</html>
