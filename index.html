@@ -1,3 +1,14 @@
+                    <?php
+		    include 'connect.php';
+		    $sql="SELECT * FROM Cryptsy_markets" ;
+		    $result=mysql_query($sql);
+		    // iterate through the results
+		    while ($row=mysql_fetch_array($result))
+		    {
+			echo "<li class=\"ui-widget-content\">".$row[ "Label"]. "</li>";
+		    }
+		    ?>
+
 <!DOCTYPE html>
 <!--https://github.com/jestersimpps/cryptsygraph-->
 <!--jestersimpps@gmail.com-->
@@ -15,29 +26,35 @@
         <link rel="stylesheet" href="style.css">
             
         <!-- JavaScript libraries -->
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/highcharts/4.0.3/highcharts.js"></script>
+        <script src="http://code.highcharts.com/modules/exporting.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular.min.js"></script>
         <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        
-        <!-- JavaScript project -->        
-        <script type="text/javascript" src="app.js"></script>
-        
-  </head>
-  <body class="container" ng-controller="PanelController as panel">
 
 	
-	<div class="container-fluid" ng-show="panel.isSelected(panel.tab)" ng-hide="panel.tab===5 || panel.tab===6">
+        <!-- JavaScript project -->        
+        <script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="depthchart.js"></script>
+	<script type="text/javascript" src="buysellchart.js"></script>
+	
+        
+  </head>
+  <body class="container">
+
+	
+	<div class="container-fluid" >
 	    <div class="calc">
-		<div class="row" ng-repeat="row in panel.getRows(panel.tab) track by $index">
+		<div class="row">
       
 		    <div class="col-xs-12 col-sm-12 col-md-12">    
-
+			    <div id="depthchart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 		    </div>
 		
 		</div>    
 	    </div>
 	</div>    
 
-  
+
   </body>
 </html>
